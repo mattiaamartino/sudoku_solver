@@ -1,0 +1,10 @@
+reset;
+
+model sudoku.mod;
+data sudoku.dat;
+option solver cplex;
+solve;
+for {i in I,j in I,k in I} {
+if x[i,j,k] = 1 then printf "%d ",k;
+if j = n*n and k = n*n then printf "\n";
+}
